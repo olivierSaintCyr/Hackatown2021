@@ -57,18 +57,36 @@ def normalize_img(image, label):
   return tf.cast(image, tf.float32) / 255., label
 
 BATCH_SIZE=16
+MODEL_PATH="models/"
+
+LR_START = 0.00001
+LR_MAX = 0.00015
+LR_MIN = 0.00001
+LR_RAMPUP_EPOCHS = 8
+LR_SUSTAIN_EPOCHS = 2
+LR_EXP_DECAY = .9
+
+def lrfn(epoch):
+    if epoch < LR_RAMPUP_EPOCHS:
+        lr = (LR_MAX - LR_START) / LR_RAMPUP_EPOCHS * epoch + LR_START
+    elif epoch < LR_RAMPUP_EPOCHS + LR_SUSTAIN_EPOCHS:
+        lr = LR_MAX
+    elif epoch > (LR_RAMPUP_EPOCHS + LR_SUSTAIN_EPOCHS)/2:
+         lr = LR_MAX/2
+    else:
+        lr = (LR_MAX - LR_MIN) * LR_EXP_DECAY**(epoch - LR_RAMPUP_EPOCHS - LR_SUSTAIN_EPOCHS) + LR_MIN
+    return lr
 
 if __name__ == "__main__":
     (ds_train, ds_test), ds_info = tfds.load(
         'PlantVillage',
-        split=['train[:70%]', 'train[70%:]'],
-        shuffle_files=True,
+        split=['train[:80%]', 'train[80%:]'],
         as_supervised=True,
         with_info=True,
     )
     ds_train = ds_train.map(
     normalize_img, num_parallel_calls=tf.data.experimental.AUTOTUNE)
-    ds_train = ds_train.cache()
+    # ds_train = ds_train.cache()
     # ds_train = ds_train.shuffle(ds_info.splits['train'].num_examples)
     ds_train = ds_train.batch(BATCH_SIZE)
     ds_train = ds_train.prefetch(tf.data.experimental.AUTOTUNE)
@@ -76,25 +94,11 @@ if __name__ == "__main__":
     ds_test = ds_test.map(
     normalize_img, num_parallel_calls=tf.data.experimental.AUTOTUNE)
     ds_test = ds_test.batch(BATCH_SIZE)
-    ds_test = ds_test.cache()
+    # ds_test = ds_test.cache()
     ds_test = ds_test.prefetch(tf.data.experimental.AUTOTUNE)
 
-
+    lr_callback = tf.keras.callbacks.LearningRateScheduler(lrfn, verbose = True)
 
     model = Model()
-    model.model.fit(ds_train, epochs=6, validation_data=ds_test)
-    # ds = ds.batch(10).map(lambda x, y: (x, tf.one_hot(y, depth=3)))
-    # for example in train:  # example is `{'image': tf.Tensor, 'label': tf.Tensor}`
-    #     #print(list(example.keys()))
-    #     image = example["image"]
-    #     label = example["label"]
-    #     one = tf.one_hot(label, depth=38).numpy()
-    #     print("label : ", len(one), label.numpy(),one)
-    #     plt.imshow(image.numpy())
-    #     plt.show()
-
-    # print(len(_LABELS))
-    
-
-
-    
+    model.model.fit(ds_train,epochs=10, validation_data=ds_test, callbacks=[lr_callback])
+    model.model.save(MODEL_PATH + "model2.h5")

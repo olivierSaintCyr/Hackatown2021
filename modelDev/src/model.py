@@ -23,6 +23,8 @@ class Model(object):
         resnet.trainable = True
         model = tf.keras.models.Sequential()
 
+        model.add(tf.keras.layers.experimental.preprocessing.Resizing(64, 64, interpolation="bilinear"))
+
         model.add(resnet)
         model.add(keras.layers.GlobalMaxPooling2D())
         
