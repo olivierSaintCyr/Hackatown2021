@@ -1,0 +1,35 @@
+.error{
+    color:red;
+}
+
+header{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background-color: rgba(255,255,255,20);
+    transition: transformation;
+}
+p{
+    
+    align-items: center;
+    font-size: 24px;
+    
+    
+}
+
+button, label{
+    border-style: none;
+    background-color: #537964;
+    color: white;
+    border-radius: 2px;
+    font-size: 20px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: #537964;
+    animation: transition() ;
+}
+
+

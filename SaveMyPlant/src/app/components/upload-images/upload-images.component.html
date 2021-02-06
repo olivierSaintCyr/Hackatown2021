@@ -1,24 +1,19 @@
-<!-- 
-<div class="container" appDnd (fileDropped)="onFileDropped($event)">
-  <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event.target.files)" />
-  <img src="assets/img/dnd/ic-upload-file.svg" alt="">
-  <h3>Drag and drop file here</h3>
-  <h3>or</h3>
-  <label for="fileDropRef">Browse for file</label>
-</div>
-<div class="files-list">
-  <div class="single-file" *ngFor="let file of files; let i = index">
-    <img src="assets/img/dnd/ic-file.svg" width="45px" alt="file">
-    <div class="info">
-      <h4 class="name">
-        {{ file?.name }}
-      </h4>
-      <p class="size">
-        {{ formatBytes(file?.size) }}
-      </p>
-      <app-progress [progress]="file?.progress"></app-progress>
-    </div>
-    <img src="assets/img/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)">
+<div>
+  <!-- <input type="file" (change)="onFileChanged($event)">  -->
+  <header> 
+      <h1>Save My Plant </h1>
+      
+  </header>
+  <p>Load a picture</p>
+  <input #file id="file" type="file" accept='image/*' (change)="preview(file.files)" style="display:none"/>
+  
+  <button for="file" (click)="file.click()"> Select file</button> 
+  
+  <button (click)= "onUpload()"> Upload </button>
+  
+  <br>
+  <div class="box">
+      <span class="error" *ngIf="message">{{message}}</span>
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
   </div>
 </div>
- -->
