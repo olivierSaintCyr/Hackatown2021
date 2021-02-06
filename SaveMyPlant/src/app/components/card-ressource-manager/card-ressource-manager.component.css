@@ -1,0 +1,15 @@
+.manager{
+    margin: 5% 10%;
+    padding: 2%;
+    background-color: rgba(98, 168, 147, 0.404);
+    align-items: baseline;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2%;
+    
+}

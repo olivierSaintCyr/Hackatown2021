@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root{ font-family: "Maven Pro", "sans-serif"; }
 html, body { height: 100%; }
 body { margin: 0; font-family: "Maven Pro", "sans-serif"; }
 hr{
@@ -8,3 +9,9 @@ hr{
     margin-top: 5%;
     margin-bottom: 5%;
   }
+
+header{
+    text-align: center;
+    font-size: 38px;  
+    font-family: 'Maven Pro', sans-serif;
+}

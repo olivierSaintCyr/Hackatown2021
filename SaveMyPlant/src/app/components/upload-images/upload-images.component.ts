@@ -8,7 +8,7 @@ import { ClassifierService } from "../../services/classifier.service";
   templateUrl: './upload-images.component.html',
   styleUrls: ['./upload-images.component.css']
 })
-export class LoadingComponent implements AfterViewInit {
+export class LoadingComponent implements OnInit {
   selectedFile: File
 
   public imagePath;
@@ -20,18 +20,18 @@ export class LoadingComponent implements AfterViewInit {
 
   @ViewChild('img_classify', {static:true}) imageEl : ElementRef;
 
-  constructor(private classifier:ClassifierService) {
+  constructor(private classifierService:ClassifierService) {
   }
 
-  ngAfterViewInit(): void {
-    this.classifier = new ClassifierService();
+  ngOnInit(): void {
+    // this.classifier = new ClassifierService();
     const canvasEl = this.canvas.nativeElement;
     this.ctx = canvasEl.getContext('2d');
 
     canvasEl.width = 256;
     canvasEl.height = 256;
 
-    console.log(this.classifier);
+    console.log(this.classifierService);
   }
 
   onFileChanged(event){
@@ -76,7 +76,7 @@ export class LoadingComponent implements AfterViewInit {
       this.imgURL = res.target.result;
       setTimeout(async() => {
         const imgEl = this.imageEl.nativeElement;
-        let predictions = await this.classifier.predict(imgEl);
+        let predictions = this.classifierService.predict(imgEl);
         console.log(predictions);
       }, 0);
     }

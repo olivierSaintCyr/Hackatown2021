@@ -1,20 +1,14 @@
 <div class="card">
-    <div id="name" class="label">
-        <span>Type : </span>
-        <div class="info">
+    <div class="upper_card">
+        <div id="name" class="label">
             {{card.name}}
         </div>
-    </div>
-    <div class="disease">
-        Disease :
-        <div class="info">
+        <div class="disease">
             {{card.disease}}
         </div>
     </div>
-    <div class="url">
-        Link :
-        <div class="info">
-            {{card.url}}
-        </div>
+    <div class="lower_card">
+        <a href="{{card.url}}" class="link fa fa-external-link-square fa-2x"></a>
+        <img src="{{card.image}}" alt="img">
     </div>
 </div>

@@ -24,9 +24,9 @@ export class ClassifierService {
 
   async predict(image : ImageData) {
     await tf.tidy(()=> {
-      let img = tf.browser.fromPixels(image, 1);
+      let img = tf.browser.fromPixels(image, 3);
       img = img.resizeBilinear([64,64]);
-      img = img.reshape([1, 64, 64,1]);
+      img = img.reshape([1, 64, 64, 3]);
       img = tf.cast(img, 'float32');
       img = img.div(255.);
 
