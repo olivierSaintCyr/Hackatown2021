@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoadingComponent } from './upload-images.component';
+import { CardRessourceComponent } from './card-ressource.component';
 
-describe('LoadingComponent', () => {
-  let component: LoadingComponent;
-  let fixture: ComponentFixture<LoadingComponent>;
+describe('CardRessourceComponent', () => {
+  let component: CardRessourceComponent;
+  let fixture: ComponentFixture<CardRessourceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoadingComponent ]
+      declarations: [ CardRessourceComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoadingComponent);
+    fixture = TestBed.createComponent(CardRessourceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

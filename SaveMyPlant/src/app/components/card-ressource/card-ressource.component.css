@@ -1,0 +1,31 @@
+.card {
+    background-color: rgba(255,255,255,20);
+    margin: 20px;
+    border-radius: 4%;
+    padding: 20px;
+    box-shadow:10px 5px 15px rgb(56, 56, 56);
+    border: 2px solid rgb(255, 255, 255);
+}
+
+#name{
+    display: relative;
+    
+    
+}
+
+.label, .disease, .url{
+    font-weight: bolder;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 1px;
+}
+
+.disease, .url{
+    font-weight: normal;
+    font-size: 18px;
+}
+.info{
+    display: inline;
+    font-weight: normal;
+}

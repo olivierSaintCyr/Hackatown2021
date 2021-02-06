@@ -1,25 +1,19 @@
 <mat-drawer-container class="example-container">
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p class="nav-option">Home</p>
-      <p class="nav-option" (mouseover)="showUploadDescription = !showUploadDescription"  (mouseout)="showUploadDescription = !showUploadDescription" mat-raised-button>Upload</p>
-      <p class="nav-description" *ngIf="showUploadDescription">Upload a picture of a leaf and let our AI generated model tell you its condition.</p>
-      <p class="nav-option" (mouseover)="showRessourcesDescription = !showRessourcesDescription"  (mouseout)="showRessourcesDescription = !showRessourcesDescription" mat-raised-button>Ressources</p>
-      <p class="nav-description" *ngIf="showRessourcesDescription">Common ressources about plants diseases and treatments</p>
-      <p class="nav-option">About us</p>
-    </mat-drawer>
-    <div class="example-sidenav-content">
-      <i class="fa fa-bars fa-4x" mat-button (click)="drawer.toggle()"></i>
-    </div>
-    <div class="main">        
-        <div class="title">
-            {{ title }}
-        </div>
-        <hr>
-        
-
-    </div>
-<label for="myfile">Select a file:</label>
-<input type="file" id="myfile" name="myfile">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p class="nav-option" routerLink="">Home</p>
+    
+    <p class="nav-option" routerLink="upload" (mouseover)="showUploadDescription = !showUploadDescription"  
+              (mouseout)="showUploadDescription = !showUploadDescription" mat-raised-button>Upload</p>
+    <p class="nav-description" *ngIf="showUploadDescription">Upload a picture of a leaf and let our AI generated model tell you its condition.</p>
+    
+    <p class="nav-option" routerLink="ressources" (mouseover)="showRessourcesDescription = !showRessourcesDescription"  
+              (mouseout)="showRessourcesDescription = !showRessourcesDescription" mat-raised-button>Ressources</p>
+    <p class="nav-description" *ngIf="showRessourcesDescription">Common ressources about plants diseases and treatments</p>
+    
+    <p class="nav-option" routerLink="aboutus">About us</p>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <i class="fa fa-bars fa-4x" mat-button (click)="drawer.toggle()"></i>
+  </div>
+  <router-outlet></router-outlet>
 </mat-drawer-container>
-<upload-images></upload-images>
-<router-outlet></router-outlet>

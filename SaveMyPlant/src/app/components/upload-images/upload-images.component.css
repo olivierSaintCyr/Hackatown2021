@@ -2,34 +2,35 @@
     color:red;
 }
 
-header{
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    background-color: rgba(255,255,255,20);
-    transition: transformation;
+#main{
+    margin: 5% 10%;
+    padding: 2%;
+    background-color: rgba(98, 168, 147, 0.404);
+    text-align: center;
 }
-p{
-    
-    align-items: center;
-    font-size: 24px;
-    
-    
+
+header{
+    text-align: center;
+    font-size: 30px;  
+    font-family: 'Maven Pro', sans-serif;
 }
 
 button, label{
+    justify-content: center;
     border-style: none;
-    background-color: #537964;
-    color: white;
+    background-color: white;
+    color: #537964;
     border-radius: 2px;
     font-size: 20px;
+    margin: 1%;
+    padding: 20px;
+    border-radius: 200px;
 }
 
 button:hover {
-    transform: scale(1.1);
-    background-color: white;
-    color: #537964;
-    animation: transition() ;
+    cursor: pointer;
+    background-color: rgba(39, 136, 0, 0.7);
+    color: white;
 }
 
 
