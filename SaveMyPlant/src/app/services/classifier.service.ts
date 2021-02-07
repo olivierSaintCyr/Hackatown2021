@@ -13,10 +13,6 @@ export class ClassifierService {
     this.loadModel();
   }
 
-  // ngOnInit() {
-  //   this.loadModel();
-  // }
-
   async loadModel() {
     const path = "../../assets/model.json";
     this.model = await tf.loadLayersModel(path);

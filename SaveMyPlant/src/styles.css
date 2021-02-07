@@ -15,3 +15,9 @@ header{
     font-size: 38px;  
     font-family: 'Maven Pro', sans-serif;
 }
+
+@media only screen and (max-width: 500px){
+  header{
+    font-size: 24px;
+  }
+}

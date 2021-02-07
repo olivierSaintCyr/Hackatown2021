@@ -1,7 +1,7 @@
 <header>Upload an Image</header>
 <hr>
 <div id="main">
-  <p>Our image classifier will predicts whether or not your sample is damaged</p>
+  <p>Our image classifier will predict whether or not your sample is damaged</p>
   <p>"Select" an image to view its result</p>
   <div class="loader">
     <img #img_classify [src]="imgURL" height="400" >
@@ -9,10 +9,10 @@
     <div></div>
     <button for="file" (click)="file.click()"> Select file</button> 
   </div>
+  <!-- <card-ressource class="card"></card-ressource> -->
   <br>
   <div class="image_preview">
     <span class="error" *ngIf="message">{{message}}</span>
-    <canvas #canvas_img></canvas>
   </div>
 </div>
 

@@ -27,4 +27,9 @@ button:hover {
     color: white;
 }
 
+.card {
+    align-self: center;
+}
+
+
 

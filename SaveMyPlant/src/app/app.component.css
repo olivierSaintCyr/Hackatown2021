@@ -39,5 +39,10 @@
     color:gray
   }
 
+  p:active, p:hover{
+    color:rgb(14, 117, 23);
+  }
 
-  @media only screen and (max-width:)
+*{
+  outline: none;
+}
