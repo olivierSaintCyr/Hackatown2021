@@ -4,8 +4,48 @@
     background-color: rgba(29, 112, 94, 0.445);
     border-radius: 10px;
     align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    vertical-align: middle;
 }
 
-img {
+.instructions{
+    color: white;
+    background-color: rgba(29, 112, 94, 0.445);
+    padding: 5%;
     border-radius: 10px;
 }
+
+.pictures{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.correct, .incorrect{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.correct{
+    background-color: rgba(17, 199, 0, 0.7);
+    border-radius: 10px;
+}
+
+.incorrect{
+    background-color: rgba(199, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+
+img{
+    height: 200px;
+    border-radius: 10px;
+    margin: 10%+10px;
+}
+
