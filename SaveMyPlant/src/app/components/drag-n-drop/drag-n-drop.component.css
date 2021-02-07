@@ -1,0 +1,24 @@
+button, label{
+    justify-content: center;
+    border-style: none;
+    background-color: white;
+    color: #537964;
+    border-radius: 2px;
+    font-size: 18px;
+    margin: 1%;
+    padding: 20px;
+    border-radius: 200px;
+}
+
+*{border-color: black;}
+
+.center {
+    border: 2px dotted white;
+
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(27, 85, 5, 0.7);
+    color: white;
+}

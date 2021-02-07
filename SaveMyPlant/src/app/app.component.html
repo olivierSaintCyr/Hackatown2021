@@ -1,5 +1,5 @@
-<mat-drawer-container class="example-container">
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+<mat-drawer-container class="container">
+  <mat-drawer #drawer class="sidenav" mode="side">
     <p class="nav-option" routerLink="">Home</p>
     
     <p class="nav-option" routerLink="upload" (mouseover)="showUploadDescription = !showUploadDescription"  
@@ -12,7 +12,7 @@
     
     <p class="nav-option" routerLink="aboutus">About us</p>
   </mat-drawer>
-  <div class="example-sidenav-content">
+  <div class="sidenav-content">
     <i class="fa fa-bars" mat-button (click)="drawer.toggle()"></i>
   </div>
   <router-outlet></router-outlet>

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MenuComponent } from './components/menu/menu.component';
 import { LoadingComponent } from './components/upload-images/upload-images.component';
 import { RessourcesComponent } from './components/ressources/ressources.component';
@@ -21,17 +21,16 @@ import { DragNDropComponent } from './components/drag-n-drop/drag-n-drop.compone
     LoadingComponent,
     RessourcesComponent,
     AboutusComponent,
-    CardRessourceComponent,,
-    
+    CardRessourceComponent,
     CardRessourceManagerComponent,
-    DragNDropComponent
+    DragNDropComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,,
+    AppRoutingModule,
     NgxFileDropModule,
     MatSidenavModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

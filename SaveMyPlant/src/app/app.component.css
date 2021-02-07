@@ -1,4 +1,4 @@
-.example-container {
+ .container {
     width: auto;
     height: 100%;
     border: 15px solid rgba(0, 50, 4, 0.5);
@@ -6,7 +6,7 @@
     background-size:cover;
   }
   
-  .example-sidenav-content {
+  .sidenav-content {
     display: flex;
     text-align: left;
     width: auto;
@@ -18,31 +18,46 @@
     color: rgba(0, 168, 14, 0.8);
   }
   
-  .example-sidenav {
+  .sidenav {
     padding: 20px;
-    max-width: 300px;
-    width: auto;
-    height: auto;
+    max-width: 15%;
+    min-width: 15%;
     padding-left: 2%;
     padding-right: 2%;
     background-color: rgba(255, 255, 255, 0.5);
   }
 
   .nav-option {
+    outline: none;
     padding-top: 30px;
     font-size: 20px;
-    
     cursor: pointer;
+  }
+  
+  .nav-option:active{
+    box-shadow: 5px rgb(220, 220, 220);
+    transform: translateY(2.2px);
   }
 
   .nav-description {
-    color:gray
+    color: rgb(100, 100, 100)
   }
 
   p:active, p:hover{
     color:rgb(14, 117, 23);
+    transform: translateY(1.75px);
   }
-
-*{
-  outline: none;
-}
+  
+  @media only screen and (max-width: 500px){
+    .sidenav-content{
+      font-size: 30px;
+    }
+    .nav-option {
+      font-size: 14px;
+    }
+    .sidenav {
+      max-width: 30%;
+      min-width: 30%;
+      font-size: 10px;
+    }
+  }

@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     align-self: center;
-    background-color: rgba(0, 88, 7, 0.5);
+    background-color: rgba(0, 88, 7, 0.75);
     color: white;
     margin-left: 20%;
     margin-right: 20%;
@@ -60,3 +60,4 @@ h1{
 #logo_mlh{
     max-height: 8em;
 }
+

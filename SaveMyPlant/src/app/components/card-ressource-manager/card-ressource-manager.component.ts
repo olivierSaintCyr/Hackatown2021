@@ -11,7 +11,7 @@ export class CardRessourceManagerComponent implements OnInit {
   cards:Array<Card> = [];
   constructor() { }
 
-  states = [
+  static states = [
     ["Apple", "Apple scab", "https://www2.gov.bc.ca/gov/content/industry/agriculture-seafood/animals-and-crops/plant-health/insects-and-plant-diseases/tree-fruits/apple-scab#:~:text=Home%20gardeners%20who%20remove%20all,to%20deactivate%20the%20scab%20fungus.", "https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/agriculture-and-seafood/animal-and-crops/plant-health-images/applescab-leaf.jpg"],
     ["Apple", "Black rot", "http://www.omafra.gov.on.ca/IPM/french/apples/diseases-and-disorders/black-rot.html","http://www.omafra.gov.on.ca/english/crops/facts/blackrotf1.jpg"],
     ["Apple", "HEALTHY", "HEALTHY"],
@@ -53,29 +53,29 @@ export class CardRessourceManagerComponent implements OnInit {
 ]
 
   ngOnInit(): void {
-    for(let i in this.states) {
-      if(this.states[i][1] != "HEALTHY") {
-        console.log(i)
+    for(let i in CardRessourceManagerComponent.states) {
+      if(CardRessourceManagerComponent.states[i][1] != "HEALTHY") {
         let newCard = new Card();
-        newCard.name = this.states[i][0];
-        newCard.disease = this.states[i][1];
-        newCard.url = new URL(this.states[i][2]);
-        newCard.image = new URL(this.states[i][3]);
+        newCard.name = CardRessourceManagerComponent.states[i][0];
+        newCard.disease = CardRessourceManagerComponent.states[i][1];
+        newCard.url = new URL(CardRessourceManagerComponent.states[i][2]);
+        newCard.image = new URL(CardRessourceManagerComponent.states[i][3]);
         this.cards.push(newCard);
       }
     }
   }
 
-  getCard(i) {
+  static getCard(i) {
     let newCard = new Card();
-    newCard.name = this.states[i][0];
-    newCard.disease = this.states[i][1];
-    newCard.url = new URL(this.states[i][2]);
-    if(this.states[i][1] != "HEALTHY") {
+    newCard.name = CardRessourceManagerComponent.states[i][0];
+    newCard.disease = CardRessourceManagerComponent.states[i][1];
+    if(CardRessourceManagerComponent.states[i][1] === "HEALTHY") {
+      newCard.activeLink = false;
       newCard.image = new URL("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1024px-Light_green_check.svg.png");
     }
     else {
-      newCard.image = new URL(this.states[i][3]);
+      newCard.url = new URL(CardRessourceManagerComponent.states[i][2]);
+      newCard.image = new URL(CardRessourceManagerComponent.states[i][3]);
     }
     return newCard;
   }

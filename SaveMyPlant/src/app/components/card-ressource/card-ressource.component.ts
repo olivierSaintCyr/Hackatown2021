@@ -7,7 +7,7 @@ import { Card } from "../../models/card";
   styleUrls: ['./card-ressource.component.css']
 })
 export class CardRessourceComponent implements OnInit {
-@Input() card:Card;
+  @Input() card:Card;
   
   constructor() { 
     this.card = new Card();

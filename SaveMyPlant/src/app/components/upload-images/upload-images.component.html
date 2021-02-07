@@ -4,16 +4,16 @@
   <p>Our image classifier will predict whether or not your sample is damaged</p>
   <p>"Select" an image to view its result</p>
   <div class="loader">
-    <img #img_classify [src]="imgURL" height="400" >
+    <!-- <drag-n-drop></drag-n-drop> -->
+    <div class="entries">
+      <img #img_classify [src]="imgURL">
+      <card-ressource *ngIf="this.showCard" [card]="this.card"></card-ressource>
+    </div>
     <input #file id="file" type="file" accept='image/*' (change)="onFileChanged($event)" style="display:none"/>
-    <div></div>
     <button for="file" (click)="file.click()"> Select file</button> 
   </div>
-  <!-- <card-ressource class="card"></card-ressource> -->
+  <span class="error" *ngIf="message">{{message}}</span>
   <br>
-  <div class="image_preview">
-    <span class="error" *ngIf="message">{{message}}</span>
-  </div>
 </div>
 
   <!-- <ul class="list-group" *ngFor="let file of selectedFile">

@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="lower_card">
-        <a href="{{card.url}}" class="link fa fa-external-link-square fa-2x"></a>
+        <a *ngIf="card.activeLink" href="{{card.url}}" class="link fa fa-external-link-square fa-2x"></a>
         <img src="{{card.image}}" alt="img">
     </div>
 </div>

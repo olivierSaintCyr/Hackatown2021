@@ -4,4 +4,5 @@ export class Card{
     disease:string = "";
     url:URL;
     image:URL;
+    activeLink:boolean = true;
 }

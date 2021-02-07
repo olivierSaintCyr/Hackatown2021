@@ -1,5 +1,9 @@
 .error{
     color:red;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 2px;
 }
 
 #main{
@@ -7,9 +11,18 @@
     padding: 2%;
     background-color: rgba(98, 168, 147, 0.404);
     text-align: center;
+    align-items: center;
 }
 
-button, label{
+.entries{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+button {
     justify-content: center;
     border-style: none;
     background-color: white;

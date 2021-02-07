@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, ViewChildren } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { ClassifierService } from "../../services/classifier.service";
 import { CardRessourceComponent } from "../../components/card-ressource/card-ressource.component";
-
+import { CardRessourceManagerComponent } from "../../components/card-ressource-manager/card-ressource-manager.component";
+import { Card } from 'src/app/models/card';
 
 @Component({
   selector: 'upload-images',
@@ -17,15 +18,14 @@ export class LoadingComponent implements AfterViewInit {
   imgURL: any;
   public message: string;
   predictions : Array<any>;
-  
+  showCard=false;
+  card : Card;
   @ViewChild('img_classify', {static:true}) imageEl : ElementRef;
-  @ViewChild(CardRessourceComponent) card;
   
   constructor(private classifierService:ClassifierService) {
   }
 
   ngAfterViewInit() {
-    console.log(this.card);
   }
 
   onFileChanged(event){
@@ -39,7 +39,7 @@ export class LoadingComponent implements AfterViewInit {
     
     var mimeType = file.type;
     if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
+      this.message = "Only images files are supported.";
       return;
     }
     var reader = new FileReader();
@@ -52,10 +52,9 @@ export class LoadingComponent implements AfterViewInit {
         const imgEl = this.imageEl.nativeElement;
         this.classifierService.predict(imgEl).then(data => {
             console.log(data[0]);
-            //this.card.getCard(data[0]);
+            this.card = CardRessourceManagerComponent.getCard(data[0]);
+            this.showCard=true;
           });
-          
-        //console.log(this.predictions)
       }, 0);
     }
   }
