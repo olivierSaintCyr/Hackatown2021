@@ -3,7 +3,7 @@ import tensorflow_datasets as tfds
 import matplotlib.pyplot as plt
 # import tf.keras as keras
 from model import Model
-
+from PIL import Image
 #######################################
 config = tf.compat.v1.ConfigProto()   #
 config.gpu_options.allow_growth = True#
@@ -53,6 +53,7 @@ _LABELS = [
 
 def normalize_img(image, label):
   """Normalizes images: `uint8` -> `float32`."""
+  image = tf.image.resize(image, [64, 64])
   label = tf.one_hot(label, depth=len(_LABELS))
   return tf.cast(image, tf.float32) / 255., label
 
@@ -80,25 +81,23 @@ def lrfn(epoch):
 if __name__ == "__main__":
     (ds_train, ds_test), ds_info = tfds.load(
         'PlantVillage',
-        split=['train[:80%]', 'train[80%:]'],
+        split=['train[0:80%]', 'train[80%:100%]'],
         as_supervised=True,
         with_info=True,
     )
     ds_train = ds_train.map(
     normalize_img, num_parallel_calls=tf.data.experimental.AUTOTUNE)
-    # ds_train = ds_train.cache()
-    # ds_train = ds_train.shuffle(ds_info.splits['train'].num_examples)
     ds_train = ds_train.batch(BATCH_SIZE)
     ds_train = ds_train.prefetch(tf.data.experimental.AUTOTUNE)
 
     ds_test = ds_test.map(
     normalize_img, num_parallel_calls=tf.data.experimental.AUTOTUNE)
     ds_test = ds_test.batch(BATCH_SIZE)
-    # ds_test = ds_test.cache()
     ds_test = ds_test.prefetch(tf.data.experimental.AUTOTUNE)
 
     lr_callback = tf.keras.callbacks.LearningRateScheduler(lrfn, verbose = True)
 
     model = Model()
-    model.model.fit(ds_train,epochs=10, validation_data=ds_test, callbacks=[lr_callback])
-    model.model.save(MODEL_PATH + "model2.h5")
+    model.model.fit(ds_train,epochs=7, validation_data=ds_test, callbacks=[lr_callback])
+    model.model.save(MODEL_PATH + "model4.h5")
+        
