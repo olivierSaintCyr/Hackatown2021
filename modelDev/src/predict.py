@@ -22,3 +22,4 @@ if __name__ == "__main__":
     prediction = model.predict(image)
     tf.print(prediction)
     tf.print(to_label(prediction[0]))
+    

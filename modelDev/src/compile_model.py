@@ -9,6 +9,3 @@ if __name__=="__main__":
     print("Compiling start")
     os.popen(command)
     print("Saved model to disk")
-
-
-
