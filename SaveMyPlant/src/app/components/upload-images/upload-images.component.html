@@ -2,15 +2,16 @@
 <hr>
 <div id="main">
   <p>Our image classifier will predict whether or not your sample is damaged</p>
-  <p>"Select" an image to view its result</p>
+  <p>"Select" an image and press "Predict" to view its result</p> 
   <div class="loader">
-    <!-- <drag-n-drop></drag-n-drop> -->
     <div class="entries">
       <img #img_classify [src]="imgURL">
       <card-ressource *ngIf="this.showCard" [card]="this.card"></card-ressource>
     </div>
-    <input #file id="file" type="file" accept='image/*' (change)="onFileChanged($event)" style="display:none"/>
-    <button for="file" (click)="file.click()"> Select file</button> 
+    <drag-n-drop (newItemEvent)="onFileChanged($event)" (predictClickEvent)="predict()"></drag-n-drop>
+    <!-- <input #file id="file" type="file" accept='image/*' (change)="onFileChanged($event)" style="display:none"/>
+    <button for="file" (click)="file.click()"> Select file</button>  -->
+    <!-- <button (click)="predict()">Predict</button>  -->
   </div>
   <span class="error" *ngIf="message">{{message}}</span>
   <br>

@@ -29,10 +29,38 @@ export class LoadingComponent implements AfterViewInit {
   }
 
   onFileChanged(event){
-    let file = (event.target.files)[0];
-    this.preview(file);
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    // console.log(event.target)
+    // console.log(event)
+    // console.log(event.target.files[0]);
+    // let file = (event.target.files)[0];
+    // console.log(event);
+    this.preview(event);
 
   }
+
+  predict() {
+    setTimeout(async() => {
+      const imgEl = this.imageEl.nativeElement;
+      console.log(imgEl);
+      this.classifierService.predict(imgEl).then(data => {
+          console.log(data[0]);
+          this.card = CardRessourceManagerComponent.getCard(data[0]);
+          this.showCard=true;
+      });
+    });
+  }
+  // predict() {
+  //   setTimeout(async() => {
+  //     const imgEl = this.imageEl.nativeElement;
+  //     console.log(imgEl);
+  //     this.classifierService.predict(imgEl).then(data => {
+  //         console.log(data[0]);
+  //         this.card = CardRessourceManagerComponent.getCard(data[0]);
+  //         this.showCard=true;
+  //     });
+  //   }
+  // }
   
   preview(file) {
     if (file == null) return;
@@ -44,17 +72,19 @@ export class LoadingComponent implements AfterViewInit {
     }
     var reader = new FileReader();
     this.imagePath = file;
+    console.log(file);
     reader.readAsDataURL(file);
-
     reader.onload = (res : any) =>{
       this.imgURL = res.target.result;
+      console.log(res.target.result);
       setTimeout(async() => {
-        const imgEl = this.imageEl.nativeElement;
-        this.classifierService.predict(imgEl).then(data => {
-            console.log(data[0]);
-            this.card = CardRessourceManagerComponent.getCard(data[0]);
-            this.showCard=true;
-          });
+         const imgEl = this.imageEl.nativeElement;
+         console.log(imgEl);
+        //  this.classifierService.predict(imgEl).then(data => {
+        //      console.log(data[0]);
+        //      this.card = CardRessourceManagerComponent.getCard(data[0]);
+        //      this.showCard=true;
+        //  });
       }, 0);
     }
   }

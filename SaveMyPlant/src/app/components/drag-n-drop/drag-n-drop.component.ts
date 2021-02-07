@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 
 @Component({
@@ -7,6 +7,10 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
   styleUrls: ['./drag-n-drop.component.css']
 })
 export class DragNDropComponent implements OnInit {
+
+  @Output() newItemEvent = new EventEmitter<File>();
+  @Output() predictClickEvent = new EventEmitter<any>();
+  
   public files: NgxFileDropEntry[] = [];
 
   constructor() { }
@@ -17,12 +21,13 @@ export class DragNDropComponent implements OnInit {
 
       // Is it a file?
       if (droppedFile.fileEntry.isFile) {
-        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-        fileEntry.file((file: File) => {
-
-          // Here you can access the real file
-          console.log(droppedFile.relativePath, file);
-
+          const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+          fileEntry.file((file: File) => {
+            
+            console.log(file);
+            this.newItemEvent.emit(file);
+            // Here you can access the real file
+          
         });
       } else {
         // It was a directory (empty directories are added, otherwise only files)
@@ -30,6 +35,10 @@ export class DragNDropComponent implements OnInit {
         console.log(droppedFile.relativePath, fileEntry);
       }
     }
+  }
+
+  public predictClick() {
+    this.predictClickEvent.emit();
   }
 
   public fileOver(event){

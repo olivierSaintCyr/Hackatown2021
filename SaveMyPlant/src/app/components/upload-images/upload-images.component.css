@@ -32,6 +32,7 @@ button {
     margin: 1%;
     padding: 20px;
     border-radius: 200px;
+    outline:none;
 }
 
 button:hover {
@@ -44,5 +45,9 @@ button:hover {
     align-self: center;
 }
 
+p{
+    font-size: 20px;
+    color: white;
+}
 
 

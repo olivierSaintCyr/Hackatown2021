@@ -1,15 +1,13 @@
 <div class="center">
-    <ngx-file-drop class="contour" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
+    <ngx-file-drop contentClassName="contour" dropZoneClassName="contour" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
     (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
         <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
             <br>
-        <button type="button" (click)="openFileSelector()">Select file</button>
+        
     <div class="upload-table">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Our image classifier will predict whether or not your sample is damaged
-                        <p>"Select" an image to view its result</p></th>
                 </tr>
             </thead>
             <tbody class="upload-name-style">
@@ -19,4 +17,6 @@
             </tbody>
         </table>
     </div>
+    <button type="button" (click)="openFileSelector()">Select file</button>
+    <button (click)="predictClick()">Predict</button> 
 
