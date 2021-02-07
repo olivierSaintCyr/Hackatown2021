@@ -1,7 +1,6 @@
  .container {
     width: auto;
     height: 100%;
-    border: 15px solid rgba(0, 50, 4, 0.5);
     background-image: url("../ressources/crops.png");
     background-size:cover;
   }
@@ -15,7 +14,8 @@
     justify-content: first baseline;
     padding: 1%;
     font-size: 38px;
-    color: rgba(0, 168, 14, 0.8);
+    
+    color: rgba(14, 117, 23, 0.8);
   }
   
   .sidenav {

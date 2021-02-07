@@ -13,6 +13,7 @@ import { CardRessourceComponent } from './components/card-ressource/card-ressour
 import { CardRessourceManagerComponent } from './components/card-ressource-manager/card-ressource-manager.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { DragNDropComponent } from './components/drag-n-drop/drag-n-drop.component';
+import {GuideComponent} from './components/guide/guide.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DragNDropComponent } from './components/drag-n-drop/drag-n-drop.compone
     CardRessourceComponent,
     CardRessourceManagerComponent,
     DragNDropComponent,
+    GuideComponent,
   ],
   imports: [
     BrowserModule,

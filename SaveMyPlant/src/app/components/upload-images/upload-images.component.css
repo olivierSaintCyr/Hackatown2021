@@ -9,9 +9,12 @@
 #main{
     margin: 5% 10%;
     padding: 2%;
-    background-color: rgba(98, 168, 147, 0.404);
+    background-color: rgba(29, 112, 77, 0.445);
     text-align: center;
     align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    position: relative;
 }
 
 .entries{
@@ -22,7 +25,7 @@
     padding-right: 20%;
 }
 
-button {
+button { 
     justify-content: center;
     border-style: none;
     background-color: white;
@@ -31,7 +34,6 @@ button {
     font-size: 20px;
     margin: 1%;
     padding: 20px;
-    border-radius: 200px;
     outline:none;
 }
 
@@ -41,13 +43,43 @@ button:hover {
     color: white;
 }
 
+img{
+    border-radius: 10px;
+}
 .card {
     align-self: center;
+    
 }
 
 p{
     font-size: 20px;
     color: white;
 }
+.subtitle{
+    font-size: 16px;
+}
 
+.help{
+    display: flex;
+    margin-left: 90%;
+    margin-top: -0.19%;
+    bottom:0;
+    right:0;
+    position: absolute;
+    color: white;
+    background-color:#537964c4;
+    padding:10px;
+    border-radius: 10%;
+}
+.help:hover {
+    cursor: pointer;
+    background-color: rgba(255, 250, 250, 0.767);
+    color: #537964c0;
+}
 
+@media only media and (max-width:500px){
+    .help{
+       width:20px;
+    }
+    
+}

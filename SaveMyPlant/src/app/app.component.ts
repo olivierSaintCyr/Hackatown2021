@@ -10,5 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   showUploadDescription = false;
   showRessourcesDescription = false;
+  showGuideDescription =false;
   title = 'SaveMyPlant';
 }

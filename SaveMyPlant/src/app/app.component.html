@@ -1,11 +1,15 @@
 <mat-drawer-container class="container">
   <mat-drawer #drawer class="sidenav" mode="side">
     <p class="nav-option" routerLink="">Home</p>
-    
+  
     <p class="nav-option" routerLink="upload" (mouseover)="showUploadDescription = !showUploadDescription"  
               (mouseout)="showUploadDescription = !showUploadDescription" mat-raised-button>Upload</p>
-    <p class="nav-description" *ngIf="showUploadDescription">Upload a picture of a leaf and let our AI generated model tell you its condition.</p>
-    
+    <p class="nav-description" *ngIf="showUploadDescription">Upload a picture of a leaf and let our AI tell you its condition.</p>
+
+    <p class="nav-option" routerLink="guide" (mouseover)="showGuideDescription = !showGuideDescription"  
+    (mouseout)="showGuideDescription = !showGuideDescription" mat-raised-button> Guide</p>
+    <p class="nav-description" *ngIf="showGuideDescription">New User? Follow our guide to use our plateform efficiently</p>
+
     <p class="nav-option" routerLink="ressources" (mouseover)="showRessourcesDescription = !showRessourcesDescription"  
               (mouseout)="showRessourcesDescription = !showRessourcesDescription" mat-raised-button>Ressources</p>
     <p class="nav-description" *ngIf="showRessourcesDescription">Common ressources about plants diseases and treatments</p>
